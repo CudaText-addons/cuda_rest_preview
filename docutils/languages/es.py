@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
-# $Id: es.py 4572 2006-05-25 20:48:37Z richieadler $
+# $Id: es.py 9030 2022-03-05 23:28:32Z milde $
 # Author: Marcelo Huerta San Martín <richieadler@users.sourceforge.net>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Spanish-language mappings for language-dependent features of Docutils.

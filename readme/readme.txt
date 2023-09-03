@@ -1,6 +1,7 @@
-plugin for CudaText.
-works with lexer reStructuredText (reST).
-converts active editor tab (with lexer reST) into HTML document, opens HTML in web-browser.
+Plugin for CudaText.
+Works with lexer reStructuredText (reST).
+Converts active document (with lexer reST) into HTML document, in the TEMP folder,
+then opens that HTML in the browser.
 
-author: Alexey Torgashin (CudaText)
-license: MIT
+Author: Alexey Torgashin (CudaText)
+License: MIT

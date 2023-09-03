@@ -1,11 +1,11 @@
 # Author: Meir Kriheli
-# Id: $Id: he.py 7119 2011-09-02 13:00:23Z milde $
+# Id: $Id: he.py 9030 2022-03-05 23:28:32Z milde $
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 English-language mappings for language-dependent features of
@@ -21,7 +21,7 @@ directives = {
       '\u05d6\u05d4\u05d9\u05e8\u05d5\u05ea': 'caution',
       'code (translation required)': 'code',
       '\u05e1\u05db\u05e0\u05d4': 'danger',
-      '\u05e9\u05d2\u05d9\u05d0\u05d4' : 'error',
+      '\u05e9\u05d2\u05d9\u05d0\u05d4': 'error',
       '\u05e8\u05de\u05d6': 'hint',
       '\u05d7\u05e9\u05d5\u05d1': 'important',
       '\u05d4\u05e2\u05e8\u05d4': 'note',
@@ -38,15 +38,15 @@ directives = {
       'pull-quote': 'pull-quote',
       'compound': 'compound',
       'container': 'container',
-      #'questions': 'questions',
+      # 'questions': 'questions',
       'table': 'table',
       'csv-table': 'csv-table',
       'list-table': 'list-table',
-      #'qa': 'questions',
-      #'faq': 'questions',
+      # 'qa': 'questions',
+      # 'faq': 'questions',
       'meta': 'meta',
       'math (translation required)': 'math',
-      #'imagemap': 'imagemap',
+      # 'imagemap': 'imagemap',
       '\u05ea\u05de\u05d5\u05e0\u05d4': 'image',
       'figure': 'figure',
       'include': 'include',
@@ -54,7 +54,7 @@ directives = {
       'replace': 'replace',
       'unicode': 'unicode',
       'date': 'date',
-       '\u05e1\u05d2\u05e0\u05d5\u05df': 'class',
+      '\u05e1\u05d2\u05e0\u05d5\u05df': 'class',
       'role': 'role',
       'default-role': 'default-role',
       'title': 'title',
@@ -63,8 +63,8 @@ directives = {
       'section-numbering': 'sectnum',
       'header': 'header',
       'footer': 'footer',
-      #'footnotes': 'footnotes',
-      #'citations': 'citations',
+      # 'footnotes': 'footnotes',
+      # 'citations': 'citations',
       'target-notes': 'target-notes',
       'restructuredtext-test-directive': 'restructuredtext-test-directive'}
 """English name to registered (in directives/__init__.py) directive name
@@ -103,6 +103,7 @@ roles = {
     'uri-reference': 'uri-reference',
     'uri': 'uri-reference',
     'url': 'uri-reference',
-    'raw': 'raw',}
+    'raw': 'raw',
+    }
 """Mapping of English role names to canonical role names for interpreted text.
 """

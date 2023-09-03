@@ -3,9 +3,9 @@
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Polish-language mappings for language-dependent features of
@@ -27,7 +27,8 @@ directives = {
       'przypis': 'note',
       'rada': 'tip',
       'ostrze\u017cenie': 'warning',
-      'upomnienie': 'admonition',
+      'upomnienie': 'admonition',  # sic! Not used in this sense in rST.
+      # 'zauważenie': 'admonition',  # remark
       'ramka': 'sidebar',
       'temat': 'topic',
       'blok-linii': 'line-block',
@@ -38,15 +39,15 @@ directives = {
       'pull-quote': 'pull-quote',  # FIXME no polish equivalent?
       'z\u0142o\u017cony': 'compound',
       'kontener': 'container',
-      #'questions': 'questions',
+      # 'questions': 'questions',
       'tabela': 'table',
       'tabela-csv': 'csv-table',
       'tabela-listowa': 'list-table',
-      #'qa': 'questions',
-      #'faq': 'questions',
+      # 'qa': 'questions',
+      # 'faq': 'questions',
       'meta': 'meta',
       'math (translation required)': 'math',
-      #'imagemap': 'imagemap',
+      # 'imagemap': 'imagemap',
       'obraz': 'image',
       'rycina': 'figure',
       'do\u0142\u0105cz': 'include',
@@ -63,8 +64,8 @@ directives = {
       'numeracja-sekcji': 'sectnum',
       'nag\u0142\u00f3wek': 'header',
       'stopka': 'footer',
-      #'footnotes': 'footnotes',
-      #'citations': 'citations',
+      # 'footnotes': 'footnotes',
+      # 'citations': 'citations',
       'target-notes': 'target-notes',  # FIXME no polish equivalent?
       'restructuredtext-test-directive': 'restructuredtext-test-directive'}
 """Polish name to registered (in directives/__init__.py) directive name
@@ -94,9 +95,7 @@ roles = {
     'referencja-uri': 'uri-reference',
     'uri': 'uri-reference',
     'url': 'uri-reference',
-    'surowe': 'raw',}
+    'surowe': 'raw',
+    }
 """Mapping of Polish role names to canonical role names for interpreted text.
 """
-    
-
-                 

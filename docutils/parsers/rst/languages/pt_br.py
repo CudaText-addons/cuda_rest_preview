@@ -1,11 +1,11 @@
-# $Id: pt_br.py 7119 2011-09-02 13:00:23Z milde $
+# $Id: pt_br.py 9030 2022-03-05 23:28:32Z milde $
 # Author: David Goodger <goodger@python.org>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Brazilian Portuguese-language mappings for language-dependent features of
@@ -38,15 +38,15 @@ directives = {
       'cita\u00E7\u00E3o-destacada': 'pull-quote',
       'compound (translation required)': 'compound',
       'container (translation required)': 'container',
-      #'perguntas': 'questions',
-      #'qa': 'questions',
-      #'faq': 'questions',
+      # 'perguntas': 'questions',
+      # 'qa': 'questions',
+      # 'faq': 'questions',
       'table (translation required)': 'table',
       'csv-table (translation required)': 'csv-table',
       'list-table (translation required)': 'list-table',
       'meta': 'meta',
       'math (translation required)': 'math',
-      #'imagemap': 'imagemap',
+      # 'imagemap': 'imagemap',
       'imagem': 'image',
       'figura': 'figure',
       'inclus\u00E3o': 'include',
@@ -63,8 +63,8 @@ directives = {
       'numera\u00E7\u00E3o-de-se\u00E7\u00F5es': 'sectnum',
       'header (translation required)': 'header',
       'footer (translation required)': 'footer',
-      #u'notas-de-rorap\u00E9': 'footnotes',
-      #u'cita\u00E7\u00F5es': 'citations',
+      # 'notas-de-rorap\u00E9': 'footnotes',
+      # 'cita\u00E7\u00F5es': 'citations',
       'links-no-rodap\u00E9': 'target-notes',
       'restructuredtext-test-directive': 'restructuredtext-test-directive'}
 """Brazilian Portuguese name to registered (in directives/__init__.py)
@@ -93,7 +93,7 @@ roles = {
     '\u00EAnfase': 'emphasis',
     'forte': 'strong',
     'literal': 'literal',
-    'math (translation required)': 'math',               # translation required?
+    'math (translation required)': 'math',  # translation required?
     'refer\u00EAncia-por-nome': 'named-reference',
     'refer\u00EAncia-an\u00F4nima': 'anonymous-reference',
     'refer\u00EAncia-a-nota-de-rodap\u00E9': 'footnote-reference',
@@ -103,6 +103,7 @@ roles = {
     'refer\u00EAncia-a-uri': 'uri-reference',
     'uri': 'uri-reference',
     'url': 'uri-reference',
-    'cru': 'raw',}
+    'cru': 'raw',
+    }
 """Mapping of Brazilian Portuguese role names to canonical role names
 for interpreted text."""

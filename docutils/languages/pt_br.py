@@ -1,14 +1,14 @@
-# $Id: pt_br.py 5567 2008-06-03 01:11:03Z goodger $
+# $Id: pt_br.py 9030 2022-03-05 23:28:32Z milde $
 # Author: David Goodger <goodger@python.org>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
-Brazilian Portuguese-language mappings for language-dependent features of Docutils.
+Brazilian Portuguese-language mappings for language-dependent features.
 """
 
 __docformat__ = 'reStructuredText'
@@ -53,7 +53,7 @@ bibliographic_fields = {
       'copyright': 'copyright',
       'dedicat\u00F3ria': 'dedication',
       'resumo': 'abstract'}
-"""Brazilian Portuguese (lowcased) to canonical name mapping for bibliographic fields."""
+"""Brazilian Portuguese (lowcased) name mapping for bibliographic fields."""
 
 author_separators = [';', ',']
 """List of separator strings for the 'Authors' bibliographic field. Tried in

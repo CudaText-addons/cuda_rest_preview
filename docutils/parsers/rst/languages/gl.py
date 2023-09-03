@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Author: David Goodger
 # Contact: goodger@users.sourceforge.net
 # Revision: $Revision: 4229 $
@@ -6,9 +5,9 @@
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Galician-language mappings for language-dependent features of
@@ -41,15 +40,15 @@ directives = {
       'coller-citaci\u00f3n': 'pull-quote',
       'compor': 'compound',
       'recipiente': 'container',
-      #'questions': 'questions',
+      # 'questions': 'questions',
       't\u00e1boa': 'table',
       't\u00e1boa-csv': 'csv-table',
       't\u00e1boa-listaxe': 'list-table',
-      #'qa': 'questions',
-      #'faq': 'questions',
+      # 'qa': 'questions',
+      # 'faq': 'questions',
       'meta': 'meta',
       'math (translation required)': 'math',
-      #'imagemap': 'imagemap',
+      # 'imagemap': 'imagemap',
       'imaxe': 'image',
       'figura': 'figure',
       'inclu\u00edr': 'include',
@@ -66,8 +65,8 @@ directives = {
       'secci\u00f3n-numerar': 'sectnum',
       'cabeceira': 'header',
       'p\u00e9 de p\u00e1xina': 'footer',
-      #'footnotes': 'footnotes',
-      #'citations': 'citations',
+      # 'footnotes': 'footnotes',
+      # 'citations': 'citations',
       'notas-destino': 'target-notes',
       'texto restruturado-proba-directiva': 'restructuredtext-test-directive'}
 """Galician name to registered (in directives/__init__.py) directive name
@@ -106,6 +105,7 @@ roles = {
     'referencia-uri': 'uri-reference',
     'uri': 'uri-reference',
     'url': 'uri-reference',
-    'cru': 'raw',}
+    'cru': 'raw',
+    }
 """Mapping of Galician role names to canonical role names for interpreted text.
 """

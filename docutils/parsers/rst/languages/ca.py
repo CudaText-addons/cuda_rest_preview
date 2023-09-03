@@ -1,11 +1,11 @@
-# $Id: ca.py 7119 2011-09-02 13:00:23Z milde $
+# $Id: ca.py 9030 2022-03-05 23:28:32Z milde $
 # Author: Ivan Vilata i Balaguer <ivan@selidor.net>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Catalan-language mappings for language-dependent features of
@@ -40,15 +40,15 @@ directives = {
       'cita-destacada': 'pull-quote',
       'compost': 'compound',
       'container (translation required)': 'container',
-      #'questions': 'questions',
+      # 'questions': 'questions',
       'taula': 'table',
       'taula-csv': 'csv-table',
       'taula-llista': 'list-table',
-      #'qa': 'questions',
-      #'faq': 'questions',
+      # 'qa': 'questions',
+      # 'faq': 'questions',
       'math (translation required)': 'math',
       'meta': 'meta',
-      #'imagemap': 'imagemap',
+      # 'imagemap': 'imagemap',
       'imatge': 'image',
       'figura': 'figure',
       'inclou': 'include',
@@ -69,11 +69,11 @@ directives = {
       'cap\u00E7alera': 'header',
       'peu-de-p\u00E0gina': 'footer',
       'peu-p\u00E0gina': 'footer',
-      #'footnotes': 'footnotes',
-      #'citations': 'citations',
+      # 'footnotes': 'footnotes',
+      # 'citations': 'citations',
       'notes-amb-destinacions': 'target-notes',
       'notes-destinacions': 'target-notes',
-      'directiva-de-prova-de-restructuredtext': 'restructuredtext-test-directive'}
+      'directiva-de-prova-de-restructuredtext': 'restructuredtext-test-directive'}  # noqa:E501
 """Catalan name to registered (in directives/__init__.py) directive name
 mapping."""
 
@@ -120,6 +120,7 @@ roles = {
     'refer\u00E8ncia-uri': 'uri-reference',
     'uri': 'uri-reference',
     'url': 'uri-reference',
-    'cru': 'raw',}
+    'cru': 'raw',
+    }
 """Mapping of Catalan role names to canonical role names for interpreted text.
 """

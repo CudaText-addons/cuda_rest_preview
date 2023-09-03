@@ -1,11 +1,11 @@
-# $Id: eo.py 7119 2011-09-02 13:00:23Z milde $
+# $Id: eo.py 9030 2022-03-05 23:28:32Z milde $
 # Author: Marcelo Huerta San Martin <richieadler@users.sourceforge.net>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Esperanto-language mappings for language-dependent features of
@@ -43,16 +43,16 @@ directives = {
       'kombina\u0135o': 'compound',
       'tekstingo': 'container',
       'enhavilo': 'container',
-      #'questions': 'questions',
-      #'qa': 'questions',
-      #'faq': 'questions',
+      # 'questions': 'questions',
+      # 'qa': 'questions',
+      # 'faq': 'questions',
       'tabelo': 'table',
-      'tabelo-vdk': 'csv-table', # "valoroj disigitaj per komoj"
+      'tabelo-vdk': 'csv-table',  # "valoroj disigitaj per komoj"
       'tabelo-csv': 'csv-table',
       'tabelo-lista': 'list-table',
       'meta': 'meta',
       'math (translation required)': 'math',
-      #'imagemap': 'imagemap',
+      # 'imagemap': 'imagemap',
       'bildo': 'image',
       'figuro': 'figure',
       'inkludi': 'include',
@@ -70,8 +70,8 @@ directives = {
       'sekcia-numerado': 'sectnum',
       'kapsekcio': 'header',
       'piedsekcio': 'footer',
-      #'footnotes': 'footnotes',
-      #'citations': 'citations',
+      # 'footnotes': 'footnotes',
+      # 'citations': 'citations',
       'celaj-notoj': 'target-notes',
       'restructuredtext-test-directive': 'restructuredtext-test-directive'}
 """Esperanto name to registered (in directives/__init__.py) directive name
@@ -114,5 +114,5 @@ roles = {
     'url': 'uri-reference',
     'senanaliza': 'raw',
 }
-"""Mapping of Esperanto role names to canonical role names for interpreted text.
+"""Mapping of Esperanto role names to canonical names for interpreted text.
 """

@@ -1,11 +1,11 @@
-# $Id: cs.py 4564 2006-05-21 20:44:42Z wiemann $
+# $Id: cs.py 9030 2022-03-05 23:28:32Z milde $
 # Author: Marek Blaha <mb@dat.cz>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Czech-language mappings for language-dependent features of Docutils.

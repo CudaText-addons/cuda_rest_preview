@@ -1,11 +1,11 @@
-# $Id: eo.py 4564 2006-05-21 20:44:42Z wiemann $
+# $Id: eo.py 9030 2022-03-05 23:28:32Z milde $
 # Author: Marcelo Huerta San Martin <richieadler@users.sourceforge.net>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Esperanto-language mappings for language-dependent features of Docutils.
@@ -24,7 +24,7 @@ labels = {
       'revision': 'Revido',
       'status': 'Stato',
       'date': 'Dato',
-      # 'copyright': u'Kopirajto',
+      # 'copyright': 'Kopirajto',
       'copyright': 'A\u016dtorrajto',
       'dedication': 'Dedi\u0109o',
       'abstract': 'Resumo',
@@ -42,8 +42,8 @@ labels = {
 
 bibliographic_fields = {
       # language-dependent: fixed
-      'a\\u016dtoro': 'author',
-      'a\\u016dtoroj': 'authors',
+      'a\u016dtoro': 'author',
+      'a\u016dtoroj': 'authors',
       'organizo': 'organization',
       'adreso': 'address',
       'kontakto': 'contact',
@@ -51,8 +51,8 @@ bibliographic_fields = {
       'revido': 'revision',
       'stato': 'status',
       'dato': 'date',
-      'a\\u016dtorrajto': 'copyright',
-      'dedi\\u0109o': 'dedication',
+      'a\u016dtorrajto': 'copyright',
+      'dedi\u0109o': 'dedication',
       'resumo': 'abstract'}
 """Esperanto (lowcased) to canonical name mapping for bibliographic fields."""
 

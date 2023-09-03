@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
-# $Id: es.py 7119 2011-09-02 13:00:23Z milde $
+# $Id: es.py 9116 2022-07-28 17:06:51Z milde $
 # Author: Marcelo Huerta San Martín <richieadler@users.sourceforge.net>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Spanish-language mappings for language-dependent features of
@@ -14,7 +13,6 @@ reStructuredText.
 """
 
 __docformat__ = 'reStructuredText'
-
 
 directives = {
       'atenci\u00f3n': 'attention',
@@ -29,7 +27,7 @@ directives = {
       'nota': 'note',
       'consejo': 'tip',
       'advertencia': 'warning',
-      'exhortacion': 'admonition',
+      'exhortacion': 'admonition',  # sic! Not used in this sense in rST.
       'exhortaci\u00f3n': 'admonition',
       'nota-al-margen': 'sidebar',
       'tema': 'topic',
@@ -44,16 +42,16 @@ directives = {
       'combinacion': 'compound',
       'combinaci\u00f3n': 'compound',
       'contenedor': 'container',
-      #'questions': 'questions',
-      #'qa': 'questions',
-      #'faq': 'questions',
+      # 'questions': 'questions',
+      # 'qa': 'questions',
+      # 'faq': 'questions',
       'tabla': 'table',
       'tabla-vsc': 'csv-table',
       'tabla-csv': 'csv-table',
       'tabla-lista': 'list-table',
       'meta': 'meta',
       'math (translation required)': 'math',
-      #'imagemap': 'imagemap',
+      # 'imagemap': 'imagemap',
       'imagen': 'image',
       'figura': 'figure',
       'incluir': 'include',
@@ -76,8 +74,8 @@ directives = {
       'notas-destino': 'target-notes',
       'cabecera': 'header',
       'pie': 'footer',
-      #'footnotes': 'footnotes',
-      #'citations': 'citations',
+      # 'footnotes': 'footnotes',
+      # 'citations': 'citations',
       'restructuredtext-test-directive': 'restructuredtext-test-directive'}
 """Spanish name to registered (in directives/__init__.py) directive name
 mapping."""
@@ -85,7 +83,6 @@ mapping."""
 roles = {
     'abreviatura': 'abbreviation',
     'ab': 'abbreviation',
-    'acronimo': 'acronym',
     'acronimo': 'acronym',
     'ac': 'acronym',
     'code (translation required)': 'code',
@@ -105,7 +102,7 @@ roles = {
     'enfasis': 'emphasis',
     '\u00e9nfasis': 'emphasis',
     'destacado': 'strong',
-    'literal': 'literal',              # "literal" is also a word in Spanish :-)
+    'literal': 'literal',  # "literal" is also a word in Spanish :-)
     'math (translation required)': 'math',
     'referencia-con-nombre': 'named-reference',
     'referencia-anonima': 'anonymous-reference',

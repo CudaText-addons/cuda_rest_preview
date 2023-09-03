@@ -1,11 +1,11 @@
-# $Id: cs.py 7119 2011-09-02 13:00:23Z milde $
+# $Id: cs.py 9030 2022-03-05 23:28:32Z milde $
 # Author: Marek Blaha <mb@dat.cz>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Czech-language mappings for language-dependent features of
@@ -18,7 +18,8 @@ __docformat__ = 'reStructuredText'
 directives = {
       # language-dependent: fixed
       'pozor': 'attention',
-      'caution (translation required)': 'caution', # jak rozlisit caution a warning?
+      # jak rozlisit caution a warning?
+      'caution (translation required)': 'caution',
       'code (translation required)': 'code',
       'nebezpe\u010D\u00ED': 'danger',
       'chyba': 'error',
@@ -38,17 +39,17 @@ directives = {
       'pull-quote (translation required)': 'pull-quote',
       'compound (translation required)': 'compound',
       'container (translation required)': 'container',
-      #'questions': 'questions',
-      #'qa': 'questions',
-      #'faq': 'questions',
+      # 'questions': 'questions',
+      # 'qa': 'questions',
+      # 'faq': 'questions',
       'table (translation required)': 'table',
       'csv-table (translation required)': 'csv-table',
       'list-table (translation required)': 'list-table',
       'math (translation required)': 'math',
       'meta (translation required)': 'meta',
-      #'imagemap': 'imagemap',
-      'image (translation required)': 'image',   # obrazek
-      'figure (translation required)': 'figure', # a tady?
+      # 'imagemap': 'imagemap',
+      'image (translation required)': 'image',    # obrazek
+      'figure (translation required)': 'figure',  # a tady?
       'include (translation required)': 'include',
       'raw (translation required)': 'raw',
       'replace (translation required)': 'replace',
@@ -63,8 +64,8 @@ directives = {
       'section-numbering (translation required)': 'sectnum',
       'header (translation required)': 'header',
       'footer (translation required)': 'footer',
-      #'footnotes': 'footnotes',
-      #'citations': 'citations',
+      # 'footnotes': 'footnotes',
+      # 'citations': 'citations',
       'target-notes (translation required)': 'target-notes',
       'restructuredtext-test-directive': 'restructuredtext-test-directive'}
 """Czech name to registered (in directives/__init__.py) directive name
@@ -103,6 +104,7 @@ roles = {
     'uri-reference (translation required)': 'uri-reference',
     'uri (translation required)': 'uri-reference',
     'url (translation required)': 'uri-reference',
-    'raw (translation required)': 'raw',}
+    'raw (translation required)': 'raw',
+    }
 """Mapping of Czech role names to canonical role names for interpreted text.
 """

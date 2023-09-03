@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
-# $Id: fi.py 7119 2011-09-02 13:00:23Z milde $
+# $Id: fi.py 9030 2022-03-05 23:28:32Z milde $
 # Author: Asko Soukka <asko.soukka@iki.fi>
 # Copyright: This module has been placed in the public domain.
 
 # New language mappings are welcome.  Before doing a new translation, please
-# read <http://docutils.sf.net/docs/howto/i18n.html>.  Two files must be
-# translated for each language: one in docutils/languages, the other in
-# docutils/parsers/rst/languages.
+# read <https://docutils.sourceforge.io/docs/howto/i18n.html>.
+# Two files must be translated for each language: one in docutils/languages,
+# the other in docutils/parsers/rst/languages.
 
 """
 Finnish-language mappings for language-dependent features of
@@ -42,10 +41,10 @@ directives = {
       'list-table (translation required)': 'list-table',
       'compound (translation required)': 'compound',
       'container (translation required)': 'container',
-      #u'kysymykset': u'questions',
+      # 'kysymykset': 'questions',
       'meta': 'meta',
       'math (translation required)': 'math',
-      #u'kuvakartta': u'imagemap',
+      # 'kuvakartta': 'imagemap',
       'kuva': 'image',
       'kaavio': 'figure',
       'sis\u00e4llyt\u00e4': 'include',
@@ -61,8 +60,8 @@ directives = {
       'kappale': 'sectnum',
       'header (translation required)': 'header',
       'footer (translation required)': 'footer',
-      #u'alaviitteet': u'footnotes',
-      #u'viitaukset': u'citations',
+      # 'alaviitteet': 'footnotes',
+      # 'viitaukset': 'citations',
       'target-notes (translation required)': 'target-notes'}
 """Finnish name to registered (in directives/__init__.py) directive name
 mapping."""
@@ -93,6 +92,7 @@ roles = {
     'substitution-reference (translation required)': 'substitution-reference',
     'kohde': 'target',
     'uri-reference (translation required)': 'uri-reference',
-    'raw (translation required)': 'raw',}
+    'raw (translation required)': 'raw',
+    }
 """Mapping of Finnish role names to canonical role names for interpreted text.
 """

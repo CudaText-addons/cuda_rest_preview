@@ -1,4 +1,4 @@
-# $Id: frontmatter.py 7595 2013-01-21 17:33:56Z milde $
+# $Id: frontmatter.py 9351 2023-04-17 20:26:33Z milde $
 # Author: David Goodger, Ueli Schlaepfer <goodger@python.org>
 # Copyright: This module has been placed in the public domain.
 
@@ -22,7 +22,8 @@ Transforms related to the front matter of a document or a section
 __docformat__ = 'reStructuredText'
 
 import re
-from docutils import nodes, utils
+
+from docutils import nodes, parsers, utils
 from docutils.transforms import TransformError, Transform
 
 
@@ -57,15 +58,15 @@ class TitlePromoter(Transform):
         assert not (len(node) and isinstance(node[0], nodes.title))
         section, index = self.candidate_index(node)
         if index is None:
-            return None
+            return False
 
         # Transfer the section's attributes to the node:
-        # NOTE: Change second parameter to False to NOT replace
-        #       attributes that already exist in node with those in
-        #       section
-        # NOTE: Remove third parameter to NOT copy the 'source'
+        # NOTE: Change `replace` to False to NOT replace attributes that
+        #       already exist in node with those in section.
+        # NOTE: Remove `and_source` to NOT copy the 'source'
         #       attribute from section
-        node.update_all_atts_concatenating(section, True, True)
+        node.update_all_atts_concatenating(section, replace=True,
+                                           and_source=True)
 
         # setup_child is called automatically for all nodes.
         node[:] = (section[:1]        # section title
@@ -73,7 +74,7 @@ class TitlePromoter(Transform):
                                       # node before the section
                    + section[1:])     # everything that was in the section
         assert isinstance(node[0], nodes.title)
-        return 1
+        return True
 
     def promote_subtitle(self, node):
         """
@@ -98,16 +99,16 @@ class TitlePromoter(Transform):
 
         subsection, index = self.candidate_index(node)
         if index is None:
-            return None
+            return False
         subtitle = nodes.subtitle()
 
         # Transfer the subsection's attributes to the new subtitle
-        # NOTE: Change second parameter to False to NOT replace
-        #       attributes that already exist in node with those in
-        #       section
-        # NOTE: Remove third parameter to NOT copy the 'source'
-        #       attribute from section
-        subtitle.update_all_atts_concatenating(subsection, True, True)
+        # NOTE: Change `replace` to False to NOT replace attributes
+        #       that already exist in node with those in section.
+        # NOTE: Remove `and_source` to NOT copy the 'source'
+        #       attribute from section.
+        subtitle.update_all_atts_concatenating(subsection, replace=True,
+                                               and_source=True)
 
         # Transfer the contents of the subsection's title to the
         # subtitle:
@@ -118,7 +119,7 @@ class TitlePromoter(Transform):
                    + node[1:index]
                    # everything that was in the subsection:
                    + subsection[1:])
-        return 1
+        return True
 
     def candidate_index(self, node):
         """
@@ -128,8 +129,8 @@ class TitlePromoter(Transform):
         """
         index = node.first_child_not_matching_class(
             nodes.PreBibliographic)
-        if index is None or len(node) > (index + 1) or \
-               not isinstance(node[index], nodes.section):
+        if (index is None or len(node) > (index + 1)
+            or not isinstance(node[index], nodes.section)):
             return None, None
         else:
             return node[index], index
@@ -216,7 +217,7 @@ class DocTitle(TitlePromoter):
     This transform also sets the document's metadata title
     (document['title']).
 
-    .. _reStructuredText: http://docutils.sf.net/rst.html
+    .. _reStructuredText: https://docutils.sourceforge.io/rst.html
     """
 
     default_priority = 320
@@ -233,11 +234,12 @@ class DocTitle(TitlePromoter):
         if not self.document.hasattr('title'):
             if self.document.settings.title is not None:
                 self.document['title'] = self.document.settings.title
-            elif len(self.document) and isinstance(self.document[0], nodes.title):
+            elif len(self.document) and isinstance(self.document[0],
+                                                   nodes.title):
                 self.document['title'] = self.document[0].astext()
 
     def apply(self):
-        if getattr(self.document.settings, 'doctitle_xform', 1):
+        if self.document.settings.setdefault('doctitle_xform', True):
             # promote_(sub)title defined in TitlePromoter base class.
             if self.promote_title(self.document):
                 # If a title has been promoted, also try to promote a
@@ -275,13 +277,12 @@ class SectionSubTitle(TitlePromoter):
     default_priority = 350
 
     def apply(self):
-        if not getattr(self.document.settings, 'sectsubtitle_xform', 1):
+        if not self.document.settings.setdefault('sectsubtitle_xform', True):
             return
-        for section in self.document.traverse(nodes.section):
-            # On our way through the node tree, we are deleting
-            # sections, but we call self.promote_subtitle for those
-            # sections nonetheless.  To do: Write a test case which
-            # shows the problem and discuss on Docutils-develop.
+        for section in self.document.findall(nodes.section):
+            # On our way through the node tree, we are modifying it
+            # but only the not-yet-visited part, so that the iterator
+            # returned by findall() is not corrupted.
             self.promote_subtitle(section)
 
 
@@ -356,9 +357,9 @@ class DocInfo(Transform):
       being expanded. Only the "RCSfile" keyword is stable; its
       expansion text changes only if the file name changes.)
 
-    .. _reStructuredText: http://docutils.sf.net/rst.html
+    .. _reStructuredText: https://docutils.sourceforge.io/rst.html
     .. _reStructuredText Markup Specification:
-       http://docutils.sf.net/docs/ref/rst/restructuredtext.html
+       https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html
     """
 
     default_priority = 340
@@ -380,7 +381,7 @@ class DocInfo(Transform):
     bibliographic fields (field_list)."""
 
     def apply(self):
-        if not getattr(self.document.settings, 'docinfo_xform', 1):
+        if not self.document.settings.setdefault('docinfo_xform', True):
             return
         document = self.document
         index = document.first_child_not_matching_class(
@@ -390,7 +391,7 @@ class DocInfo(Transform):
         candidate = document[index]
         if isinstance(candidate, nodes.field_list):
             biblioindex = document.first_child_not_matching_class(
-                  (nodes.Titular, nodes.Decorative))
+                  (nodes.Titular, nodes.Decorative, nodes.meta))
             nodelist = self.extract_bibliographic(candidate)
             del document[index]         # untransformed field list (candidate)
             document[biblioindex:biblioindex] = nodelist
@@ -424,6 +425,7 @@ class DocInfo(Transform):
                             base_node=field)
                         raise TransformError
                     title = nodes.title(name, labels[canonical])
+                    title[0].rawsource = labels[canonical]
                     topics[canonical] = biblioclass(
                         '', title, classes=[canonical], *field[1].children)
                 else:
@@ -433,6 +435,10 @@ class DocInfo(Transform):
                        and isinstance(field[-1][0], nodes.paragraph):
                     utils.clean_rcs_keywords(
                         field[-1][0], self.rcs_keyword_substitutions)
+                # if normedname not in bibliofields:
+                classvalue = nodes.make_id(normedname)
+                if classvalue:
+                    field['classes'].append(classvalue)
                 docinfo.append(field)
         nodelist = []
         if len(docinfo) != 0:
@@ -445,30 +451,48 @@ class DocInfo(Transform):
     def check_empty_biblio_field(self, field, name):
         if len(field[-1]) < 1:
             field[-1] += self.document.reporter.warning(
-                  'Cannot extract empty bibliographic field "%s".' % name,
+                  f'Cannot extract empty bibliographic field "{name}".',
                   base_node=field)
-            return None
-        return 1
+            return False
+        return True
 
     def check_compound_biblio_field(self, field, name):
-        if len(field[-1]) > 1:
-            field[-1] += self.document.reporter.warning(
-                  'Cannot extract compound bibliographic field "%s".' % name,
-                  base_node=field)
-            return None
-        if not isinstance(field[-1][0], nodes.paragraph):
-            field[-1] += self.document.reporter.warning(
-                  'Cannot extract bibliographic field "%s" containing '
-                  'anything other than a single paragraph.' % name,
-                  base_node=field)
-            return None
-        return 1
+        # Check that the `field` body contains a single paragraph
+        # (i.e. it must *not* be a compound element).
+        f_body = field[-1]
+        if len(f_body) == 1 and isinstance(f_body[0], nodes.paragraph):
+            return True
+        # Restore single author name with initial (E. Xampl) parsed as
+        # enumerated list
+        # https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#enumerated-lists
+        if (isinstance(f_body[0], nodes.enumerated_list)
+            and '\n' not in f_body.rawsource.strip()):
+            # parse into a dummy document and use created nodes
+            _document = utils.new_document('*DocInfo transform*',
+                                           field.document.settings)
+            parser = parsers.rst.Parser()
+            parser.parse('\\'+f_body.rawsource, _document)
+            if (len(_document.children) == 1
+                and isinstance(_document.children[0], nodes.paragraph)):
+                f_body.children = _document.children
+                return True
+        # Check failed, add a warning
+        content = [f'<{e.tagname}>' for e in f_body.children]
+        if len(content) > 1:
+            content = '[' + ', '.join(content) + ']'
+        else:
+            content = 'a ' + content[0]
+        f_body += self.document.reporter.warning(
+                      f'Bibliographic field "{name}"\nmust contain '
+                      f'a single <paragraph>, not {content}.',
+                      base_node=field)
+        return False
 
     rcs_keyword_substitutions = [
           (re.compile(r'\$' r'Date: (\d\d\d\d)[-/](\d\d)[-/](\d\d)[ T][\d:]+'
                       r'[^$]* \$', re.IGNORECASE), r'\1-\2-\3'),
           (re.compile(r'\$' r'RCSfile: (.+),v \$', re.IGNORECASE), r'\1'),
-          (re.compile(r'\$[a-zA-Z]+: (.+) \$'), r'\1'),]
+          (re.compile(r'\$[a-zA-Z]+: (.+) \$'), r'\1')]
 
     def extract_authors(self, field, name, docinfo):
         try:
@@ -489,30 +513,42 @@ class DocInfo(Transform):
                 raise TransformError
         except TransformError:
             field[-1] += self.document.reporter.warning(
-                  'Bibliographic field "%s" incompatible with extraction: '
-                  'it must contain either a single paragraph (with authors '
-                  'separated by one of "%s"), multiple paragraphs (one per '
-                  'author), or a bullet list with one paragraph (one author) '
-                  'per item.'
-                  % (name, ''.join(self.language.author_separators)),
-                  base_node=field)
+                f'Cannot extract "{name}" from bibliographic field:\n'
+                f'Bibliographic field "{name}" must contain either\n'
+                ' a single paragraph (with author names separated by one of '
+                f'"{"".join(self.language.author_separators)}"),\n'
+                ' multiple paragraphs (one per author),\n'
+                ' or a bullet list with one author name per item.\n'
+                'Note: Leading initials can cause (mis)recognizing names '
+                'as enumerated list.',
+                base_node=field)
             raise
 
     def authors_from_one_paragraph(self, field):
-        text = field[1][0].astext().strip()
+        """Return list of Text nodes with author names in `field`.
+
+        Author names must be separated by one of the "autor separators"
+        defined for the document language (default: ";" or ",").
+        """
+        # @@ keep original formatting? (e.g. ``:authors: A. Test, *et-al*``)
+        text = ''.join(str(node)
+                       for node in field[1].findall(nodes.Text))
         if not text:
             raise TransformError
         for authorsep in self.language.author_separators:
-            authornames = text.split(authorsep)
+            # don't split at escaped `authorsep`:
+            pattern = '(?<!\x00)%s' % authorsep
+            authornames = re.split(pattern, text)
             if len(authornames) > 1:
                 break
-        authornames = [author.strip() for author in authornames]
-        authors = [[nodes.Text(author)] for author in authornames if author]
-        return authors
+        authornames = (name.strip() for name in authornames)
+        return [[nodes.Text(name)] for name in authornames if name]
 
     def authors_from_bullet_list(self, field):
         authors = []
         for item in field[1][0]:
+            if isinstance(item, nodes.comment):
+                continue
             if len(item) != 1 or not isinstance(item[0], nodes.paragraph):
                 raise TransformError
             authors.append(item[0].children)
@@ -522,7 +558,8 @@ class DocInfo(Transform):
 
     def authors_from_paragraphs(self, field):
         for item in field[1]:
-            if not isinstance(item, nodes.paragraph):
+            if not isinstance(item, (nodes.paragraph, nodes.comment)):
                 raise TransformError
-        authors = [item.children for item in field[1]]
+        authors = [item.children for item in field[1]
+                   if not isinstance(item, nodes.comment)]
         return authors
